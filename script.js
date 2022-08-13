@@ -4,7 +4,7 @@ const ctx = canvas.getContext("2d")
 const printf = (text) => console.log(text)
 
 const RADIUS = 10
-const START_POS = [0, 0]
+const START_POS = [300, 300]
 
 let selected_index = null
 
@@ -49,6 +49,7 @@ const NewronList = [
     new Newron(200, 100, "blue"),
     new Newron(100, 200, "red"),
 ]
+
 const SumNewron = new Newron(0, 0, "green", false)
 
 const RenderList = []
@@ -95,7 +96,7 @@ canvas.addEventListener("mousemove", (event) => {
     const evtPos = [event.offsetX, event.offsetY]
     if (selected_index !== null) {
         RenderList[selected_index].setPos(evtPos[0], evtPos[1])
-        SumNewron.setPos(RenderList[0].x + RenderList[1].x, RenderList[0].y + RenderList[1].y)
+        SumNewron.setPos(-START_POS[0] + RenderList[0].x + RenderList[1].x, -START_POS[0] + RenderList[0].y + RenderList[1].y)
         render()
     }
 })
